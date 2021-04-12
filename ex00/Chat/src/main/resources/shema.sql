@@ -46,7 +46,7 @@ create table if not exists message
         constraint message_chatroom_chatroom_id_fk
             references chatroom,
     message_text text not null,
-    message_date date not null
+    message_date timestamp default CURRENT_TIMESTAMP not null
 );
 
 alter table message owner to postgres;

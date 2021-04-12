@@ -6,7 +6,8 @@ import java.util.Properties;
 public enum Property {
   JDBC_URL("jdbc.url"),
   JDBC_USER_NAME("jdbc.user.name"),
-  JDBC_USER_PASSWORD("jdbc.user.password");
+  JDBC_USER_PASSWORD("jdbc.user.password"),
+  JDBC_DATABASE("jdbc.user.database");
 
   String name;
   String value;

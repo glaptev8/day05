@@ -7,10 +7,10 @@ import edu.school21.chat.models.ChatRoom;
 import edu.school21.chat.models.Message;
 import edu.school21.chat.models.User;
 import edu.school21.chat.settings.Property;
-import org.postgresql.Driver;
+import org.postgresql.ds.PGSimpleDataSource;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -25,10 +25,18 @@ public class Program {
     System.out.println("1");
   }
 
+  static public DataSource getDataSource() {
+    PGSimpleDataSource dataSource = new PGSimpleDataSource();
+    dataSource.setServerNames(new String[]{"localhost"});
+    dataSource.setDatabaseName(Property.JDBC_DATABASE.getValue());
+    dataSource.setUser(Property.JDBC_USER_NAME.getValue());
+    dataSource.setPassword(Property.JDBC_USER_PASSWORD.getValue());
+    return dataSource;
+  }
+
   static public Connection getConnection() {
     try {
-      DriverManager.registerDriver(new Driver());
-      return DriverManager.getConnection(Property.JDBC_URL.getValue(), Property.JDBC_USER_NAME.getValue(), Property.JDBC_USER_PASSWORD.getValue());
+      return getDataSource().getConnection();
     } catch (SQLException e) {
       throw new RuntimeException("Error connecting to the database", e);
     }
