@@ -6,6 +6,7 @@ import edu.school21.chat.dao.UserDao;
 import edu.school21.chat.models.ChatRoom;
 import edu.school21.chat.models.Message;
 import edu.school21.chat.models.User;
+import edu.school21.chat.settings.Property;
 import org.postgresql.Driver;
 
 import java.sql.Connection;

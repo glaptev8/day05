@@ -1,6 +1,7 @@
 package edu.school21.chat.models;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Message {
   private int id;
@@ -58,5 +59,18 @@ public class Message {
 
   public void setId(int id) {
     this.id = id;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Message)) return false;
+    Message message = (Message) o;
+    return id == message.id;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
   }
 }

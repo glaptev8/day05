@@ -1,4 +1,4 @@
-package edu.school21.chat;
+package edu.school21.chat.settings;
 
 public enum ColumnName {
   USER_TABLE_NAME("User"),

@@ -8,12 +8,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static edu.school21.chat.ColumnName.MESSAGE_AUTHOR;
-import static edu.school21.chat.ColumnName.MESSAGE_DATE;
-import static edu.school21.chat.ColumnName.MESSAGE_ID;
-import static edu.school21.chat.ColumnName.MESSAGE_ROOM;
-import static edu.school21.chat.ColumnName.MESSAGE_TABLE_NAME;
-import static edu.school21.chat.ColumnName.MESSAGE_TEXT;
+import static edu.school21.chat.settings.ColumnName.MESSAGE_AUTHOR;
+import static edu.school21.chat.settings.ColumnName.MESSAGE_DATE;
+import static edu.school21.chat.settings.ColumnName.MESSAGE_ID;
+import static edu.school21.chat.settings.ColumnName.MESSAGE_ROOM;
+import static edu.school21.chat.settings.ColumnName.MESSAGE_TABLE_NAME;
+import static edu.school21.chat.settings.ColumnName.MESSAGE_TEXT;
 
 public class MessageDao {
   public Message getMessageByID(int id) {

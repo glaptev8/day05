@@ -1,6 +1,7 @@
 package edu.school21.chat.models;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ChatRoom {
   private int id;
@@ -67,5 +68,18 @@ public class ChatRoom {
 
   public void setMessages(List<Integer> messages) {
     this.messages = messages;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof ChatRoom)) return false;
+    ChatRoom chatRoom = (ChatRoom) o;
+    return id == chatRoom.id;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
   }
 }

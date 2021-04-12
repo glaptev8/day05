@@ -1,4 +1,4 @@
-package edu.school21.chat;
+package edu.school21.chat.settings;
 
 import java.io.IOException;
 import java.util.Properties;

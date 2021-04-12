@@ -2,7 +2,6 @@ package edu.school21.chat.dao;
 
 import edu.school21.chat.Program;
 import edu.school21.chat.models.ChatRoom;
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,18 +9,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static edu.school21.chat.ColumnName.CHAT_ID;
-import static edu.school21.chat.ColumnName.CHAT_NAME;
-import static edu.school21.chat.ColumnName.CHAT_OWNER;
-import static edu.school21.chat.ColumnName.CHAT_TABLE_NAME;
-import static edu.school21.chat.ColumnName.CHAT_USER_CHAT_ID;
-import static edu.school21.chat.ColumnName.CHAT_USER_TABLE;
-import static edu.school21.chat.ColumnName.CHAT_USER_USER_ID;
-import static edu.school21.chat.ColumnName.MESSAGE_ID;
-import static edu.school21.chat.ColumnName.MESSAGE_ROOM;
-import static edu.school21.chat.ColumnName.MESSAGE_TABLE_NAME;
-import static edu.school21.chat.ColumnName.USER_ID;
-import static edu.school21.chat.ColumnName.USER_TABLE_NAME;
+import static edu.school21.chat.settings.ColumnName.CHAT_ID;
+import static edu.school21.chat.settings.ColumnName.CHAT_NAME;
+import static edu.school21.chat.settings.ColumnName.CHAT_OWNER;
+import static edu.school21.chat.settings.ColumnName.CHAT_TABLE_NAME;
+import static edu.school21.chat.settings.ColumnName.CHAT_USER_CHAT_ID;
+import static edu.school21.chat.settings.ColumnName.CHAT_USER_TABLE;
+import static edu.school21.chat.settings.ColumnName.CHAT_USER_USER_ID;
+import static edu.school21.chat.settings.ColumnName.MESSAGE_ID;
+import static edu.school21.chat.settings.ColumnName.MESSAGE_ROOM;
+import static edu.school21.chat.settings.ColumnName.MESSAGE_TABLE_NAME;
+import static edu.school21.chat.settings.ColumnName.USER_ID;
+import static edu.school21.chat.settings.ColumnName.USER_TABLE_NAME;
 
 public class ChatDao {
 
