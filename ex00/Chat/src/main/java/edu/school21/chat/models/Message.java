@@ -9,6 +9,14 @@ public class Message {
   private String message;
   private Date date;
 
+  public Message(int id, int authorId, int chatId, String message, Date date) {
+    this.id = id;
+    this.authorId = authorId;
+    this.chatId = chatId;
+    this.message = message;
+    this.date = date;
+  }
+
   public Message(int authorId, int chatId, String message, Date date) {
     this.authorId = authorId;
     this.chatId = chatId;

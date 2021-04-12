@@ -5,17 +5,26 @@ import java.util.List;
 public class ChatRoom {
   private int id;
   private String chatName;
-  private String chatOwner;
-  private List<User> members;
+  private int chatOwner;
+  private List<Integer> members;
+  private List<Integer> messages;
 
-  public ChatRoom(int id, String chatName, String chatOwner, List<User> members) {
+  public ChatRoom(int id, String chatName, int chatOwner, List<Integer> members, List<Integer> messages) {
+    this.id = id;
+    this.chatName = chatName;
+    this.chatOwner = chatOwner;
+    this.members = members;
+    this.messages = messages;
+  }
+
+  public ChatRoom(int id, String chatName, int chatOwner, List<Integer> members) {
     this.id = id;
     this.chatName = chatName;
     this.chatOwner = chatOwner;
     this.members = members;
   }
 
-  public ChatRoom(String chatName, String chatOwner) {
+  public ChatRoom(String chatName, int chatOwner) {
     this.chatName = chatName;
     this.chatOwner = chatOwner;
   }
@@ -36,19 +45,27 @@ public class ChatRoom {
     this.chatName = chatName;
   }
 
-  public String getChatOwner() {
+  public int getChatOwner() {
     return chatOwner;
   }
 
-  public void setChatOwner(String chatOwner) {
+  public void setChatOwner(int chatOwner) {
     this.chatOwner = chatOwner;
   }
 
-  public List<User> getMembers() {
+  public List<Integer> getMembers() {
     return members;
   }
 
-  public void setMembers(List<User> members) {
+  public void setMembers(List<Integer> members) {
     this.members = members;
+  }
+
+  public List<Integer> getMessages() {
+    return messages;
+  }
+
+  public void setMessages(List<Integer> messages) {
+    this.messages = messages;
   }
 }

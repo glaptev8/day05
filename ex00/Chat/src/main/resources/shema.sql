@@ -9,6 +9,12 @@ create table if not exists "User"
 
 alter table "User" owner to postgres;
 
+create unique index if not exists user_login_uindex
+    on "User" (login);
+
+create unique index if not exists user_user_id_uindex
+    on "User" (user_id);
+
 create table if not exists chatroom
 (
     chatroom_id serial not null
@@ -25,11 +31,8 @@ alter table chatroom owner to postgres;
 create unique index if not exists chatroom_chatroom_id_uindex
     on chatroom (chatroom_id);
 
-create unique index if not exists user_login_uindex
-    on "User" (login);
-
-create unique index if not exists user_user_id_uindex
-    on "User" (user_id);
+create unique index if not exists chatroom_chatroom_owner_uindex
+    on chatroom (chatroom_owner);
 
 create table if not exists message
 (

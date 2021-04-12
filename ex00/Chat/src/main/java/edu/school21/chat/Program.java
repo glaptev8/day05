@@ -1,6 +1,11 @@
 package edu.school21.chat;
 
+import edu.school21.chat.dao.ChatDao;
+import edu.school21.chat.dao.MessageDao;
+import edu.school21.chat.dao.UserDao;
 import edu.school21.chat.models.ChatRoom;
+import edu.school21.chat.models.Message;
+import edu.school21.chat.models.User;
 import org.postgresql.Driver;
 
 import java.sql.Connection;
@@ -12,6 +17,10 @@ public class Program {
   public static void main(String[] args) {
     ChatDao chatDao = new ChatDao();
     ChatRoom chat = chatDao.getChat(1);
+    UserDao userDao = new UserDao();
+    User user = userDao.getUserById(1);
+    MessageDao messageDao = new MessageDao();
+    Message messageByID = messageDao.getMessageByID(1);
     System.out.println("1");
   }
 

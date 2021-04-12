@@ -17,3 +17,8 @@ INSERT INTO "message" (message_author, message_room, message_text, message_date)
 INSERT INTO "message" (message_author, message_room, message_text, message_date) VALUES (1, 2, 'today we will chill', current_date);
 INSERT INTO "message" (message_author, message_room, message_text, message_date) VALUES (2, 1, 'glad to see you admin"', current_date);
 INSERT INTO "message" (message_author, message_room, message_text, message_date) VALUES (1, 2, 'it is good news', current_date);
+
+SELECT u.user_id, u.login, cr.chatroom_name FROM "User" u
+    LEFT JOIN userschats uc ON uc.user_id = u.user_id
+    LEFT JOIN chatroom cr ON cr.chatroom_id = uc.chat_id
+    WHERE cr.chatroom_id = 1;
