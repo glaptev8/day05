@@ -22,6 +22,11 @@ public class ChatRoom {
     this.chatOwner = chatOwner;
   }
 
+  public ChatRoom(Long id, String chatName) {
+    this.id = id;
+    this.chatName = chatName;
+  }
+
   public Long getId() {
     return id;
   }

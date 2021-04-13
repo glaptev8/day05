@@ -5,15 +5,15 @@ import java.util.Objects;
 
 public class Message {
   private Long id;
-  private User authorId;
-  private ChatRoom chatId;
+  private User author;
+  private ChatRoom chat;
   private String message;
   private Date date;
 
-  public Message(Long id, User authorId, ChatRoom chatId, String message, Date date) {
+  public Message(Long id, User author, ChatRoom chat, String message, Date date) {
     this.id = id;
-    this.authorId = authorId;
-    this.chatId = chatId;
+    this.author = author;
+    this.chat = chat;
     this.message = message;
     this.date = date;
   }
@@ -42,20 +42,20 @@ public class Message {
     return id;
   }
 
-  public User getAuthorId() {
-    return authorId;
+  public User getAuthor() {
+    return author;
   }
 
-  public void setAuthorId(User authorId) {
-    this.authorId = authorId;
+  public void setAuthor(User author) {
+    this.author = author;
   }
 
-  public ChatRoom getChatId() {
-    return chatId;
+  public ChatRoom getChat() {
+    return chat;
   }
 
-  public void setChatId(ChatRoom chatId) {
-    this.chatId = chatId;
+  public void setChat(ChatRoom chat) {
+    this.chat = chat;
   }
 
   @Override
@@ -76,8 +76,8 @@ public class Message {
   public String toString() {
     return "Message{" +
       "id=" + id +
-      ", authorId=" + authorId +
-      ", chatId=" + chatId +
+      ", author=" + author +
+      ", chat=" + chat +
       ", message='" + message + '\'' +
       ", date=" + date +
       '}';
