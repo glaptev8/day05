@@ -5,6 +5,7 @@ import edu.school21.chat.models.Message;
 import edu.school21.chat.models.User;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,7 +48,12 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
       if (resultSet.next()) {
         Long messageId = resultSet.getLong(MESSAGE_ID.getColumnName());
         String messageText = resultSet.getString(MESSAGE_TEXT.getColumnName());
-        LocalDateTime date = resultSet.getTimestamp(MESSAGE_DATE.getColumnName()).toLocalDateTime();
+        LocalDateTime date;
+        if (resultSet.getTimestamp(MESSAGE_DATE.getColumnName()) == null) {
+          date = null;
+        } else {
+          date = resultSet.getTimestamp(MESSAGE_DATE.getColumnName()).toLocalDateTime();
+        }
         Long userId = resultSet.getLong(USER_ID.getColumnName());
         String userLogin = resultSet.getString(USER_LOGIN.getColumnName());
         String userPassword = resultSet.getString(USER_PASSWORD.getColumnName());
@@ -74,8 +80,30 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
       ps.setLong(2, message.getChat().getId());
       ps.setString(3, message.getMessage());
       ps.setTimestamp(4, Timestamp.valueOf(message.getDate()));
-      ps.executeUpdate();
+      ps.executeQuery();
       ps.close();
+    } catch (SQLException e) {
+      throw new RuntimeException("Error get result", e);
+    }
+  }
+
+  @Override
+  public void update(Message message) {
+    String updateMessage = "UPDATE message SET message_author = ?, message_room = ?,"
+      + " message_text = ?, message_date = ?"
+      + " WHERE message_id = " + message.getId();
+    try {
+      PreparedStatement ps = dataSource.getConnection().prepareStatement(updateMessage);
+      ps.setLong(1, message.getAuthor().getId());
+      ps.setLong(2, message.getChat().getId());
+      ps.setString(3, message.getMessage());
+      if (message.getDate() == null) {
+        ps.setTimestamp(4,null);
+      }
+      else {
+        ps.setTimestamp(4, Timestamp.valueOf(message.getDate()));
+      }
+      ps.execute();
     } catch (SQLException e) {
       throw new RuntimeException("Error get result", e);
     }
