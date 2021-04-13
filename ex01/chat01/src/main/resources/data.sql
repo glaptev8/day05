@@ -31,27 +31,3 @@ INSERT INTO "message" (message_author, message_room, message_text, message_date)
 VALUES (2, 1, 'glad to see you admin"', current_timestamp);
 INSERT INTO "message" (message_author, message_room, message_text, message_date)
 VALUES (1, 2, 'it is good news', current_timestamp);
-
-SELECT u.user_id, u.login, cr.chatroom_name
-FROM "User" u
-         LEFT JOIN userschats uc ON uc.user_id = u.user_id
-         LEFT JOIN chatroom cr ON cr.chatroom_id = uc.chat_id
-WHERE cr.chatroom_id = 1;
-
-SELECT cr.chatroom_id
-FROM chatroom cr
-         LEFT JOIN userschats uc on cr.chatroom_id = uc.chat_id
-         LEFT JOIN "User" u on uc.user_id = u.user_id
-WHERE u.user_id = 3;
-
-SELECT u.user_id
-FROM chatroom cr
-         LEFT JOIN userschats uc on cr.chatroom_id = uc.chat_id
-         LEFT JOIN "User" u on uc.user_id = u.user_id
-WHERE cr.chatroom_id = 1;
-
-SELECT * FROM message m
-WHERE m.message_id = 1;
-
-SELECT m.message_id FROM message m
-WHERE m.message_room = 1;

@@ -29,15 +29,15 @@ public class Program {
 
   public static void main(String[] args) {
     MessagesRepository messagesRepository = new MessagesRepositoryJdbcImpl(ds);
-    Optional<Message> optionalMessage = messagesRepository.findById(9L);
-    Message message = null;
+    Optional<Message> optionalMessage = messagesRepository.findById(7L);
+    Message message;
     if (optionalMessage.isPresent()) {
       message = optionalMessage.get();
-      message.setMessage("333");
+      message.setMessage("444");
       message.setDate(null);
       messagesRepository.update(message);
     }
-    optionalMessage = messagesRepository.findById(9L);
-    System.out.println();
+    optionalMessage = messagesRepository.findById(7L);
+    optionalMessage.ifPresent(System.out::println);
   }
 }

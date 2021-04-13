@@ -33,7 +33,7 @@ public class Program {
     Message message = new Message(null, creator, room, "create with help jdbc!", LocalDateTime.now());
     MessagesRepository messagesRepository = new MessagesRepositoryJdbcImpl(ds);
     messagesRepository.save(message);
-    Optional<Message> byId = messagesRepository.findById(9L);
-    System.out.println();
+    Optional<Message> byId = messagesRepository.findById(8L);
+    byId.ifPresent(System.out::println);
   }
 }
