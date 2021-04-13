@@ -1,8 +1,6 @@
 create table if not exists "User"
 (
-    user_id serial not null
-        constraint user_pk
-            primary key,
+    user_id BIGSERIAL not null PRIMARY KEY,
     login text not null,
     password text not null
 );
@@ -17,9 +15,7 @@ create unique index if not exists user_user_id_uindex
 
 create table if not exists chatroom
 (
-    chatroom_id serial not null
-        constraint chatroom_pk
-            primary key,
+    chatroom_id BIGSERIAL not null PRIMARY KEY,
     chatroom_name text not null,
     chatroom_owner integer not null
         constraint chatroom_user_user_id_fk
@@ -36,9 +32,7 @@ create unique index if not exists chatroom_chatroom_owner_uindex
 
 create table if not exists message
 (
-    message_id serial not null
-        constraint message_pk
-            primary key,
+    message_id BIGSERIAL not null PRIMARY KEY,
     message_author integer
         constraint message_user_user_id_fk
             references "User",
@@ -56,9 +50,7 @@ create unique index if not exists message_message_id_uindex
 
 create table if not exists userschats
 (
-    id serial not null
-        constraint userschats_pk
-            primary key,
+    id BIGSERIAL not null PRIMARY KEY,
     user_id integer not null
         constraint userschats_user_user_id_fk
             references "User",
